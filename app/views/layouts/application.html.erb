@@ -10,6 +10,38 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand display-1" href="#">Metis</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <% if user_signed_in?	%>
+        <li class="nav-item nav-link">
+          <i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
+        </li>
+        <% end %>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">MyPage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
   </body>
 </html>
