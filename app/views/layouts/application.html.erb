@@ -7,16 +7,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-  <%= yield %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand display-1" href="#">Metis</a>
+  </head>
+    <b><nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ffb6c1;">
+    <%= link_to("Metis", root_path,method: :get,class: "navbar-brand") %>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <%= link_to("Home", root_path, mathod: :get, class: "nav-link") %>
         </li>
       </ul>
       <ul class="nav navbar-nav ml-auto">
@@ -27,21 +25,23 @@
         <% end %>
         <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="#">MyPage</a>
+          <%= link_to("MyPage", root_path, mathod: :get, class: "nav-link") %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "nav-link") %>
         </li>
         <% else %>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <%= link_to("Register", new_user_registration_path, class: :post, class: "nav-link") %> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <%= link_to("Login", new_user_session_path, class: :post, class: "nav-link") %> 
         <% end %>
         </li>
       </ul>
     </div>
-  </nav>
+  </nav></b>
+  <body>
+  <%= yield %>
   </body>
 </html>
