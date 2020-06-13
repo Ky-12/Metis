@@ -2,21 +2,19 @@ class ArticlesController < ApplicationController
 
   def new
     @article =Article.new
-    @tags = Tag.new
   end
 
   def create
-    @user=current_user
     @article = Article.new(article_params)
-    @article.user_id = @user
-    @tags = Tag.new(name: params[:tag_names])
+    @article.user_id = current_user.id
+    #@tags = Tag.new(tag_params)
     if @article.save
-      tag_list = tag_params[:tag_names].delete(" ").split(",")
+      tag_list = tag_params[:tags].delete(" ").split(",")
       # article.rb に save_tags()メソッドを定義
       @article.save_tags(tag_list)
-      redirect_to("artcle/:id/:show")
+      redirect_to(root_path)
     else
-      redirect_to (root_path)
+      redirect_to (article_new_path)
     end
   end
 
@@ -54,6 +52,6 @@ class ArticlesController < ApplicationController
   end
 
   def tag_params
-    params.require(:article).permit(:names)
+    params.require(:article).permit(:tags)
   end
 end
