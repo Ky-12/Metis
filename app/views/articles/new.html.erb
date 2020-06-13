@@ -1,6 +1,6 @@
 <div class="border p-4">
   <h1 class="h5 mb-4">新規作成</h1>
-  <%= form_with model: @article, url: user_session do |f| %>
+  <%= form_with model: @article, url: article_create_path do |f| %>
     <fieldset class="mb-4">
       <div class="form-group">
         <%= f.label :title, "タイトル", class: "form-group" %>
