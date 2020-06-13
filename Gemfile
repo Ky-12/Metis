@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #ログイン・ログアウト機能を追加
 gem 'devise'
+
+gem 'rb-readline'
