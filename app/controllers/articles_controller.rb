@@ -45,6 +45,11 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to root_path
   end
+
+  def tagSearch
+    @article = Tag.find(params[:id]).articles
+  end
+
   private
 
   def article_params
